@@ -356,6 +356,31 @@ section {
   text-align: center;
   font-weight: 500;
   font-size: 24px;
+  div {
+    margin-top: 10px;
+  }
+  button {
+    cursor: pointer;
+    width: 12px;
+    height: 20px;
+    display: inline-block;
+    font-size: 0;
+    background: url(../img/arrow.jpg) no-repeat;
+  }
+  button.right_btn {
+    transform: scaleX(-1);
+    margin-left: 20px;
+    position: relative;
+    &::before {
+      content: '';
+      position: absolute;
+      top: -2px;
+      left: 25px;
+      width: 1px;
+      height: 25px;
+      background: #ddd;
+    }
+  }
 }
 .media_slide, .notice_slide {
   width: 1200px;
@@ -427,23 +452,95 @@ section {
       width: 50px;
       height: 50px;
       border-radius: 50%;
-      background: #333;
+      transition:.3s;
       &::before, &::after {
         content: '';
         position: absolute;
         width: 30px;
         height: 1px;
         background: #333;
-      }
-      &::before {
-        top: 0;
-        left: 0;
+        top: 24px;
+        left: 10px;
+        transition: .3s;
       }
       &::after {
-        top: 0;
-        left: 0;
-        transform: rotate(-90deg);
+        transform: rotate(90deg);
       }
     }
   }
+}
+.notice_slide a:hover {
+  span {
+    background: #333;
+    &::before, &::after {
+      background: #fff;
+    }
+    &::before {
+      transform: rotate(90deg);
+    }
+    &::after {
+      transform: rotate(180deg);
+    }
+  }
+}
+footer {
+  background: #f4f4f4;
+}
+.footer_wrap {
+  position: relative;
+  & > a {
+    display: inline-block;
+    width: 27px;
+    height: 15px;
+    position: absolute;
+    right: 60px;
+    bottom: 180px;
+    background: url(../img/to_top.png) no-repeat;
+  }
+}
+.footer_logo {
+  text-align: center;
+}
+.footer_menu {
+  display: flex;
+  margin-top: 35px;
+  font-size: 18px;
+  font-weight: 600;
+  justify-content: center;
+  li:not(:last-child) {
+    margin-right: 70px;
+  }
+}
+.footer_bottom {
+  display: flex;
+  margin: 35px 60px 0;
+  padding: 35px 0;
+  justify-content: space-between;
+  border-top: 1px solid #ddd;
+}
+.footer_left {
+  display: flex;
+  align-items: center;
+  font-size: 15px;
+  img {
+    width: 152px;
+  }
+  p {
+    margin-left: 35px;
+  }
+}
+.footer_right ul {
+  display: flex;
+  text-align: center;
+  font-size: 14px;
+  li {
+    margin-right: 8px;
+  }
+}
+.shortcut {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: #454545;
+  line-height: 74px;
 }
