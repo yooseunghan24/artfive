@@ -257,3 +257,56 @@ noticeRight.addEventListener('click', () => {
   noticeIdx === 1 ? noticeIdx = 1 : noticeIdx += 1;
   noticeSlide.style.marginLeft = `${-100 * noticeIdx}%`;
 });
+
+/* 터치 이벤트 */
+let isClicked = false;
+let start = 0;
+let move = 0;
+let distance = 0;
+let touchAni;
+window.addEventListener('touchstart', (e) => {
+  isClicked = true;
+  start = e.touches[0].clientY;
+})
+window.addEventListener('touchend', (e) => {
+  isClicked = false;
+})
+window.addEventListener('touchmove', (e) => {
+  if(!isClicked) return;
+  move = e.touches[0].clientY;
+  distance = start - move;
+  clearTimeout(touchAni);
+  touchAni = setTimeout(() => {
+    if(distance > 0) {
+      if (index < 8) {
+        index += 1;
+        wheelWrap.style.marginTop = `${-innerHeight * index}px`;
+      } else {
+        if (index === 9) return;
+        wheelWrap.style.marginTop = parseFloat(wheelWrap.style.marginTop) - (footer.clientHeight) + 'px';
+        index = 9;
+      }
+      for(let i of sideBtn) {
+        i.classList.remove('active');
+      }
+      sideBtn[index].classList.add('active');
+    } else {
+      if (index === 9) {
+        wheelWrap.style.marginTop = parseFloat(wheelWrap.style.marginTop) + (footer.clientHeight) + 'px';
+        index -= 1;
+      } else {
+        if (index === 0) return;
+        index -= 1;
+        wheelWrap.style.marginTop = `${-innerHeight * index}px`;
+      }
+      for(let i of sideBtn) {
+        i.classList.remove('active');
+      }
+      sideBtn[index].classList.add('active');
+    }
+    textAniFnc();
+    scrollBtnFnc();
+    colorChange();
+    meritFnc();
+  }, 100)
+})
