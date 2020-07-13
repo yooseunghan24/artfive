@@ -1,3 +1,8 @@
+html, body {
+  -ms-touch-action: none;
+      touch-action: none;
+}
+
 /* wrap */
 #wrap {
   width: 100vw;
@@ -303,6 +308,7 @@ section {
   top: 50%;
   -webkit-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
+  display: block;
 }
 
 .text {
@@ -1024,11 +1030,11 @@ footer {
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center;
-    margin-top: 40px;
+    margin-top: 6%;
   }
   .program_list li:not(:last-child) {
     margin-right: 0;
-    margin-bottom: 60px;
+    margin-bottom: 5%;
   }
   .program_list a {
     width: 150px;
@@ -1036,6 +1042,9 @@ footer {
   }
   .program_list a .program_text {
     font-size: 20px;
+  }
+  .section07 .inner_contents {
+    height: 80vh;
   }
   /* section08 merit */
   .merit_list li {

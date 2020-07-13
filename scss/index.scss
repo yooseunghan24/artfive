@@ -1,6 +1,8 @@
 @charset "utf-8";
 @import "mixin";
-
+html, body {
+  touch-action: none;
+}
 /* wrap */
 #wrap {
   width: 100vw;
@@ -243,6 +245,7 @@ section {
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
+    display: block;
   }
 }
 .text {
@@ -862,10 +865,10 @@ footer {
   .program_list {
     flex-direction: column;
     align-items: center;
-    margin-top: 40px;
+    margin-top: 6%;
     li:not(:last-child) {
       margin-right: 0;
-      margin-bottom: 60px;
+      margin-bottom: 5%;
     }
     a {
       width: 150px;
@@ -875,7 +878,9 @@ footer {
       }
     }
   }
-  
+  .section07 .inner_contents {
+    height: 80vh;
+  }
   /* section08 merit */
   .merit_list li {
     height: 200px;
